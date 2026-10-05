@@ -12,6 +12,4 @@ print(df.head())
 
 df.to_parquet(f"output_{month}.parquet")
 
-#df.to_parquet(f"output_day_{sys.argv[1]}.parquet")
-
 print(f'hello pipeline, month={month}')
