@@ -1,0 +1,9 @@
++--------+--------------------------+-------+-------+
+| [38;2;0;255;95;01mSchema[39;00m | [38;2;0;255;95;01mName[39;00m                     | [38;2;0;255;95;01mType[39;00m  | [38;2;0;255;95;01mOwner[39;00m |
+|--------+--------------------------+-------+-------|
+| public | test                     | table | root  |
+| public | yellow_taxi_data         | table | root  |
+| public | yellow_taxi_trips        | table | root  |
+| public | yellow_taxi_trips_2021_1 | table | root  |
++--------+--------------------------+-------+-------+
+SELECT 4
