@@ -60,12 +60,16 @@ def run(year, month, pg_user, pg_pass, pg_host, pg_port, pg_db, chunksize, targe
         chunksize=chunksize
     )
 
+    first = True
     for df_chunk in tqdm(df_iter):
-        df_chunk.head(0).to_sql(
-            name=target_table,
-            con=engine,
-            if_exists="replace"
-        )
+        if first:
+            df_chunk.head(0).to_sql(
+                name=target_table,
+                con=engine,
+                if_exists="replace"
+            )
+            first = False
+
         df_chunk.to_sql(
             name=target_table,
             con=engine,
