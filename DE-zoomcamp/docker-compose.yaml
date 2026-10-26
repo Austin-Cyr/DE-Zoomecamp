@@ -1,0 +1,30 @@
+services:
+  pgdatabase:
+    image: postgres:18
+    container_name: pgdatabase
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "ny_taxi"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ny_taxi_postgres_data:/var/lib/postgresql
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    network_mode: host
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "root"
+      PGADMIN_LISTEN_PORT: "8085"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+
+volumes:
+  ny_taxi_postgres_data:
+    external: true
+  pgadmin_data:
+    external: true
