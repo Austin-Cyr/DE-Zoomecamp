@@ -54,3 +54,16 @@ root@f9df81042b3c:/app/test# python script.py
 pip install pandas
 # need ot install pyarrow to use parquet
 pip install pyarrow
+# to add ai copoilt to kestra - add the below to the docker coompse file under Kestra. adjust as needed.
+          ai:
+            type: gemini
+            gemini:
+              model-name: gemini-3.8-flash
+              api-key: ${GEMINI_API_KEY}
+# to add secret key to .env_encoded to use in kestra
+cd /workspaces/DE-Zoomecamp/DE-zoomcamp
+read -rs GEMINI_RAW
+echo "SECRET_GEMINI_API_KEY=$(printf %s "$GEMINI_RAW" | base64 -w 0)" >> .env_encoded
+unset GEMINI_RAW
+# then test with 
+cut -d= -f1 .env_encoded

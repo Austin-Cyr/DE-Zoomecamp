@@ -1,3 +1,5 @@
+# this is a flow to add key values to teh store. 
+
 id: 06_gcp_kv
 namespace: zoomcamp
 labels:
