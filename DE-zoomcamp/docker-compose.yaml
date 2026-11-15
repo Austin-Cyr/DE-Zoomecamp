@@ -96,11 +96,14 @@ services:
             tmpDir:
               path: /tmp/kestra-wd/tmp
           url: http://localhost:8080/
+          ai:
+            type: gemini
+            gemini:
+              model-name: gemini-3.8-flash
+              api-key: ${GEMINI_API_KEY}
     #ports:
      # - "8080:8080"
     #- "8081:8081"
     depends_on:
       kestra_postgres:
         condition: service_healthy
-
-
